@@ -19,7 +19,7 @@ https://www.npmjs.com/package/postcoder-geocoding
 ### Basic usage
 
 ```javascript
-var geocoding = require("allies-geocoding");
+var geocoding = require("postcoder-geocoding");
 
 geocoding.init("[YOUR API KEY HERE]");
 
@@ -42,7 +42,7 @@ Returns an object with information about number of credits on your account and m
 [Full list of fields returned](https://developers.alliescomputing.com/postcoder-web-api/error-handling)
 
 ```javascript
-var address_lookup = require("allies-postcode-lookup");
+var address_lookup = require("postcoder-geocoding");
 
 address_lookup.init("[YOUR API KEY HERE]");
 
