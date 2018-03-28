@@ -188,40 +188,6 @@ AlliesGeocoding.prototype.streetFromGeo = function (latitude, longitude, radius,
 
 };
 
-
-/*
-
-Return geodata for a given IP address
-
-*/
-
-AlliesGeocoding.prototype.geoFromIp = function (ip_address, callback) {
-
-    var ip_address = ip_address || false;
-
-    if(ip_address !== false && ip_address.trim() != "") {
-
-        var request_url = this.config.url_base + this.config.api_key + "/geolocate/ip/" + encodeURIComponent(ip_address) + "?" + qs.stringify(this.config.options);
-
-        send_request(request_url, function(result, error) {
-
-            return callback(result, error);
-
-        });
-
-    } else {
-
-        var error_response = {
-            http_status: 404,
-            error_body: "No IP Address parameter supplied"
-        };
-
-        return callback(false, error_response);
-
-    }
-
-};
-
 /*
 
 Internal helper functions

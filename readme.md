@@ -35,6 +35,50 @@ geocoding.geoFromPostcode("NR14 7PZ", function(result, error) {
 });
 ```
 
+Also returns OS Eastings and Northings.
+
+### Return street level data as well as latitude and longitude
+
+```javascript
+var geocoding = require("postcoder-geocoding");
+
+geocoding.init("[YOUR API KEY HERE]");
+
+geocoding.searchStreetGeo("NR14 7PZ", function(result, error) {
+
+    if (error) {
+        console.log(error);
+    } else {
+        // returns an array of locations containing street level data, latitude and longitude
+        console.log(result);
+    }
+
+});
+```
+
+Returns street name, county name and more alongside the same fields as the geoFromPostcode method, [full list of fields](https://developers.alliescomputing.com/postcoder-web-api/address-lookup/street)
+
+### Reverse geocoding (street level data)
+
+```javascript
+var geocoding = require("postcoder-geocoding");
+
+geocoding.init("[YOUR API KEY HERE]");
+
+// Passing in latitude, longitude and radius (metres)
+geocoding.streetFromGeo("52.5859714116", "1.3492192897", "50", function(result, error) {
+
+    if (error) {
+        console.log(error);
+    } else {
+        // returns an array of locations containing street level data, latitude and longitude
+        console.log(result);
+    }
+
+});
+```
+[More info on reverse geocoding](https://developers.alliescomputing.com/postcoder-web-api/geocoding/reverse)
+
 ### Check status of your API key
 
 Returns an object with information about number of credits on your account and more
