@@ -2,13 +2,13 @@
 
 Simple node wrapper for geocoding endpoints of the PostCoder Web API from Allies.
 
-[Find out more about the geocoding API](https://www.alliescomputing.com/postcoder/geocoding) and [sign up for a trial to get an API key](https://www.alliescomputing.com/postcoder/sign-up)
+[Find out more about the geocoding API](https://postcoder.com/docs/address-lookup#uk-geocoding) and [sign up for a trial to get an API key](https://postcoder.com/sign-up)
 
 **Note: This is a paid for API**
 
 The API allows searching for forward and reverse UK geocoding.
 
-[For full developer documentation](https://developers.alliescomputing.com)
+[For full developer documentation](https://postcoder.com/docs)
 
 ## Install
 
@@ -56,7 +56,7 @@ geocoding.searchStreetGeo("NR14 7PZ", function(result, error) {
 });
 ```
 
-Returns street name, county name and more alongside the same fields as the geoFromPostcode method, [full list of fields](https://developers.alliescomputing.com/postcoder-web-api/address-lookup/street)
+Returns street name, county name and more alongside the same fields as the geoFromPostcode method, [full list of fields](https://postcoder.com/docs/address-lookup#street-lookup)
 
 ### Reverse geocoding (street level data)
 
@@ -77,13 +77,12 @@ geocoding.streetFromGeo("52.5859714116", "1.3492192897", "50", function(result, 
 
 });
 ```
-[More info on reverse geocoding](https://developers.alliescomputing.com/postcoder-web-api/geocoding/reverse)
 
 ### Check status of your API key
 
 Returns an object with information about number of credits on your account and more
 
-[Full list of fields returned](https://developers.alliescomputing.com/postcoder-web-api/error-handling)
+[Full list of fields returned](https://postcoder.com/docs/status)
 
 ```javascript
 var address_lookup = require("postcoder-geocoding");
