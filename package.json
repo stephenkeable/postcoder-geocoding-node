@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Node package to simplify the use of the PostCoder Web API from Allies, which offers several UK geocoding API endpoints.",
   "main": "index.js",
-  "homepage": "https://www.alliescomputing.com/postcoder/geocoding",
+  "homepage": "https://postcoder.com/address-lookup",
   "scripts": {
     "test": "nyc --reporter=html --reporter=text mocha"
   },
