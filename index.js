@@ -54,31 +54,29 @@ class AlliesGeocoding {
   Internal helper functions
   */
   static sendRequest(requestUrl, callback) {
-    https
-      .get(requestUrl, (response) => {
-        const data = [];
-        response.on('data', (chunk) => {
-          data.push(chunk);
-        });
-        response.on('end', () => {
-          if (response.statusCode === 200) {
-            const theResponse = JSON.parse(data.join());
-            return callback(theResponse, false);
-          }
-          const errorResponse = {
-            http_status: response.statusCode,
-            error_body: 'Error',
-          };
-          return callback(false, errorResponse);
-        });
-      })
-      .on('error', (e) => {
+    https.get(requestUrl, (response) => {
+      const data = [];
+      response.on('data', (chunk) => {
+        data.push(chunk);
+      });
+      response.on('end', () => {
+        if (response.statusCode === 200) {
+          const theResponse = JSON.parse(data.join());
+          return callback(theResponse, false);
+        }
         const errorResponse = {
-          http_status: 500,
-          error_body: e,
+          http_status: response.statusCode,
+          error_body: 'Error',
         };
         return callback(false, errorResponse);
       });
+    }).on('error', (e) => {
+      const errorResponse = {
+        http_status: 500,
+        error_body: e,
+      };
+      return callback(false, errorResponse);
+    });
   }
 
   static trimCheck(text) {
